@@ -25,6 +25,11 @@ class GetRequester:
         """
         # Send a GET request to the provided API endpoint
         response = requests.get(self.url)
+
+        # Raise an HTTPError for unsuccessful HTTP responses
+        response = requests.get(self.url)
+        response.raise_for_status()
+
         # Return the raw response body
         return response.content
 
